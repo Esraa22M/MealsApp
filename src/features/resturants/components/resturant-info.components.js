@@ -13,14 +13,31 @@ export const ResturantInfoCard = ({ resturant = {} }) => {
 		rating = 4,
 		isClosedTemporarily,
 	} = resturant;
-	const Title = styled.Text`  text-align: center;text-transform: capitalize;
-padding:16px;
-`;
+	const Title = styled.Text`
+		text-align: center;
+		text-transform: capitalize;
+		padding: 16px;
+	`;
+	const ResturantCard = styled(Card)`
+		background-color: white;
+		justify-content: "center";
+		align-items: "center";
+		padding-vertical: 20px;
+	`;
+	const ResturantCardCover = styled(Card.Cover)`
+		background-color: white;
+		width: 300px;
+		height: 300px;
+		over-flow:'hidden';
+		borderRadius: 1000px;
+		border-width: 3px;
+		border-color: white;
+	`;
 	return (
-		<Card elevation={5} style={styles.card}>
-			<Card.Cover source={{ uri: photos[0] }} style={styles.cover} />
+		<ResturantCard elevation={5} style={styles.card}>
+			<ResturantCardCover source={{ uri: photos[0] }} />
 			<Title>{name}</Title>
-		</Card>
+		</ResturantCard>
 	);
 };
 const styles = StyleSheet.create({
@@ -30,13 +47,5 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		paddingVertical: 20,
 	},
-	cover: {
-		backgroundColor: "white",
-		width: 300,
-		height: 300,
-		borderRadius: 300 / 2,
-		overflow: "hidden",
-		borderWidth: 3,
-		borderColor: "white",
-	},
+	cover: {},
 });
