@@ -1,6 +1,7 @@
 import { Avatar, Button, Card, Text } from "react-native-paper";
-import { StyleSheet } from "react-native";
+import { View } from "react-native";
 import styled from "styled-components/native";
+
 export const ResturantInfoCard = ({ resturant = {} }) => {
 	const {
 		name = "some resturant",
@@ -13,39 +14,46 @@ export const ResturantInfoCard = ({ resturant = {} }) => {
 		rating = 4,
 		isClosedTemporarily,
 	} = resturant;
+
+	const ResturantCard = styled(Card)`
+		background-color: ${(props) => props.theme.colors.bg.primary};
+		align-items: center;
+		justify-content: center;
+		padding-vertical: ${(props) => props.theme.space[3]};
+	`;
+	const ResturantCardCover = styled(Card.Cover)`
+		background-color: ${(props) => props.theme.colors.bg.primary};
+		width: ${(props) => props.theme.sizes[6]};
+		height: ${(props) => props.theme.sizes[6]};
+		border-radius: 1000px;
+		over-flow: "hidden";
+		border-width: ${(props) => props.theme.sizes[0]};
+		border-color: white;
+	`;
+	const CardBody = styled.View`
+		justify-content: "center";
+		align-items: "center";
+	`;
 	const Title = styled.Text`
 		text-align: center;
 		text-transform: capitalize;
-		padding: 16px;
+		padding: ${(props) => props.theme.space[3]};
+		color: ${(props) => props.theme.colors.ui.primary};
+		font-family: ${(props) => props.theme.fonts.heading};
+		font-size: ${(props) => props.theme.fontSizes.body};
 	`;
-	const ResturantCard = styled(Card)`
-		background-color: white;
-		justify-content: "center";
-		align-items: "center";
-		padding-vertical: 20px;
-	`;
-	const ResturantCardCover = styled(Card.Cover)`
-		background-color: white;
-		width: 300px;
-		height: 300px;
-		over-flow:'hidden';
-		borderRadius: 1000px;
-		border-width: 3px;
-		border-color: white;
+	const Address = styled.Text`
+		font-family: ${(props) => props.theme.fonts.body};
+		text-align: center;
+		font-size: ${(props) => props.theme.fontSizes.caption};
 	`;
 	return (
-		<ResturantCard elevation={5} style={styles.card}>
+		<ResturantCard elevation={5}>
 			<ResturantCardCover source={{ uri: photos[0] }} />
-			<Title>{name}</Title>
+			<CardBody>
+				<Title>{name}</Title>
+				<Address>{address}</Address>
+			</CardBody>
 		</ResturantCard>
 	);
 };
-const styles = StyleSheet.create({
-	card: {
-		backgroundColor: "white",
-		justifyContent: "center",
-		alignItems: "center",
-		paddingVertical: 20,
-	},
-	cover: {},
-});

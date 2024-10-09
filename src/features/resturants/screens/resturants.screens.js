@@ -5,32 +5,29 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 import { ResturantInfoCard } from "../components/resturant-info.components";
 export const ResturantScreen = () => {
+	
 	const Container = styled(SafeAreaView)`
 		flex: 1;
-		margin-left: 16px;
-		margin-right: 16px;
-
-		${StatusBar.currentHeight
-			? `margin-top:${StatusBar.currentHeight}px`
-			: `margin-top:${Constants.statusBarHeight}px`
-};
+		margin-left: ${(props) => props.theme.space[3]};
+		margin-right: ${(props) => props.theme.space[3]};
+		margin-top: ${Constants.statusBarHeight}px;
 	`;
 	const SearchContainer = styled.View`
-		padding: 16px;
+		padding: ${(props) => props.theme.space[3]};
 	`;
 	const ListContainer = styled.View`
 		flex: 1;
-		padding: 16px;
+		padding: ${(props) => props.theme.space[3]};
 	`;
 	return (
-		<Container mode="margin">
+		<><Container >
 			<SearchContainer>
 				<Searchbar />
 			</SearchContainer>
 			<ListContainer>
 				<ResturantInfoCard />
 			</ListContainer>
-		</Container>
+		</Container></>
 	);
 };
 const styles = StyleSheet.create({
