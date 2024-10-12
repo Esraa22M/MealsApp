@@ -4,6 +4,7 @@ import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/icons/star.js";
 import open from "../../../../assets/icons/open.js";
+import { Spacer } from "../../../components/spacer/spacer.component.js";
 export const ResturantInfoCard = ({ resturant = {} }) => {
 	const {
 		name = "some resturant",
@@ -14,7 +15,7 @@ export const ResturantInfoCard = ({ resturant = {} }) => {
 		address = "some random streat",
 		isOpenNow = true,
 		rating = 4,
-		isClosedTemporarily=true,
+		isClosedTemporarily = true,
 	} = resturant;
 
 	const ResturantCard = styled(Card)`
@@ -72,15 +73,19 @@ export const ResturantInfoCard = ({ resturant = {} }) => {
 
 	return (
 		<ResturantCard elevation={5}>
-			<IconsContainerView>
-				<RowView>
-					{isClosedTemporarily && <Text>is closed temporarily</Text>}
-					{isOpenNow && <SvgXml xml={open} width={30} height={30} />}
-				</RowView>
-				<RowView>
-					<Icon source={{ uri: icon }} />
-				</RowView>
-			</IconsContainerView>
+			<Spacer postion="bottom" size="large">
+				<IconsContainerView>
+					<RowView>
+						{isClosedTemporarily && <Text>is closed temporarily</Text>}
+						<Spacer postion="left" size="medium">
+							{isOpenNow && <SvgXml xml={open} width={30} height={30} />}
+						</Spacer>
+					</RowView>
+					<RowView>
+						<Icon source={{ uri: icon }} />
+					</RowView>
+				</IconsContainerView>
+			</Spacer>
 
 			<ResturantCardCover source={{ uri: photos[0] }} />
 			<CardBody>
