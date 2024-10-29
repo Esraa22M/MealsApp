@@ -3,8 +3,8 @@ import { Text } from "react-native";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
-import { Container } from "../components/utils/safe-area.components";
-import { ResturantScreen } from "../features/resturants/screens/resturants.screens";
+import { Container } from "../../components/utils/safe-area.components";
+import { ResturantScreen } from "../../features/resturants/screens/resturants.screens";
 const Tab = createBottomTabNavigator();
 const Map = () => {
 	return (

@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { TabNavigation } from "./tab-navigation";
-export const NavigationContainerComponent = () => (
+import { TabNavigation } from "./app.navigator";
+export const Navigation = () => (
 	<NavigationContainer>
 		<TabNavigation/>
 	</NavigationContainer>

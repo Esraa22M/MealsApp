@@ -6,7 +6,7 @@ import { theme } from "./src/infastructure/theme";
 import { Raleway_400Regular } from "@expo-google-fonts/raleway";
 import { Quicksand_400Regular } from "@expo-google-fonts/quicksand";
 import { LoadingOverLay } from "./src/ui/loading-overlay.components";
-import { NavigationContainerComponent } from "./src/navigation/navigation-container";
+import { Navigation } from "./src/infastructure/navigation";
 import { LocationContextProvider } from "./src/services/location/location.context";
 export default function App() {
 	const [fontsLoaded] = useFonts({
@@ -21,7 +21,7 @@ export default function App() {
 			<ThemeProvider theme={theme}>
 				<LocationContextProvider>
 					<ResturantContextProvider>
-						<NavigationContainerComponent />
+						<Navigation />
 					</ResturantContextProvider>
 				</LocationContextProvider>
 				<ExpoStatusBar style="auto" />

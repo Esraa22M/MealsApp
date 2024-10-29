@@ -17,6 +17,7 @@ export const resturantsTransform = ({ results = [] }) => {
 		);
 		return {
 			...resturant,
+			address:resturant.vicinity,
 			isOpenNow:
 				resturant?.opening_hours && resturant?.opening_hours?.open_now === true,
 			isClosedTemporarily: resturant.business_status === "CLOSED_TEMPORARILY",
