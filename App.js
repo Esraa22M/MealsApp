@@ -8,6 +8,7 @@ import { Quicksand_400Regular } from "@expo-google-fonts/quicksand";
 import { LoadingOverLay } from "./src/ui/loading-overlay.components";
 import { Navigation } from "./src/infastructure/navigation";
 import { LocationContextProvider } from "./src/services/location/location.context";
+import { ResturantDetailsContextProvider } from "./src/services/resturan-details/resturant-details.context";
 export default function App() {
 	const [fontsLoaded] = useFonts({
 		Raleway_400Regular,
@@ -19,11 +20,13 @@ export default function App() {
 	return (
 		<>
 			<ThemeProvider theme={theme}>
-				<LocationContextProvider>
-					<ResturantContextProvider>
-						<Navigation />
-					</ResturantContextProvider>
-				</LocationContextProvider>
+				<ResturantDetailsContextProvider>
+					<LocationContextProvider>
+						<ResturantContextProvider>
+							<Navigation />
+						</ResturantContextProvider>
+					</LocationContextProvider>
+				</ResturantDetailsContextProvider>
 				<ExpoStatusBar style="auto" />
 			</ThemeProvider>
 		</>

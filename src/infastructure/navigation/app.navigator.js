@@ -2,9 +2,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text } from "react-native";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-
+import { ResturantsNavigator } from "./resturant.navigator";
 import { Container } from "../../components/utils/safe-area.components";
-import { ResturantScreen } from "../../features/resturants/screens/resturants.screens";
 const Tab = createBottomTabNavigator();
 const Map = () => {
 	return (
@@ -38,7 +37,7 @@ const createScreenOptions = ({ route }) => ({
 });
 export const TabNavigation = () => (
 	<Tab.Navigator screenOptions={createScreenOptions}>
-		<Tab.Screen component={ResturantScreen} name="ResturantScreen" />
+		<Tab.Screen component={ResturantsNavigator} name="ResturantScreen" />
 		<Tab.Screen component={Map} name="map" />
 		<Tab.Screen component={Settings} name="settings" />
 	</Tab.Navigator>
