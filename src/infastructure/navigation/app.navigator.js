@@ -4,14 +4,8 @@ import Fontisto from "@expo/vector-icons/Fontisto";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { ResturantsNavigator } from "./resturant.navigator";
 import { Container } from "../../components/utils/safe-area.components";
+import { MapScreenOverview } from "../../features/map/screens/map-overview/map-overview.screens";
 const Tab = createBottomTabNavigator();
-const Map = () => {
-	return (
-		<Container>
-			<Text>map</Text>
-		</Container>
-	);
-};
 const Settings = () => {
 	return (
 		<Container>
@@ -38,7 +32,7 @@ const createScreenOptions = ({ route }) => ({
 export const TabNavigation = () => (
 	<Tab.Navigator screenOptions={createScreenOptions}>
 		<Tab.Screen component={ResturantsNavigator} name="ResturantScreen" />
-		<Tab.Screen component={Map} name="map" />
+		<Tab.Screen component={MapScreenOverview} name="map" />
 		<Tab.Screen component={Settings} name="settings" />
 	</Tab.Navigator>
 );
