@@ -44,7 +44,6 @@ export const RowView = styled(View)`
 `;
 export const IconsContainerView = styled(View)`
 	flex-direction: row;
-
 	justify-content: space-between;
 `;
 export const Icon = styled(Image)`

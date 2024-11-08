@@ -7,16 +7,20 @@ import { LoadingDataIndicator } from "../../../../ui/loading-data-indicator/load
 import { ResturantInfoCard } from "../../components/resturant-info/resturant-info.components";
 import { Spacer } from "../../../../components/spacer/spacer.component";
 import { Search } from "../../components/search/search.components";
+import { FavouritesBar } from "../../components/favourites/favourites-bar.components";
+import { FavouritesContext } from "../../../../services/favourites/favourites.context";
 export const ResturantScreen = ({ navigation }) => {
 	const { resturants, isLoading } = useContext(ResturantContext);
 	const handleNavigation = (item) => {
 		navigation?.navigate("ResturantDetails", {resturant:item});
 	};
+	const { isToggled,favourites} = useContext(FavouritesContext);
 	return (
 		<>
 			<Container>
 				{isLoading && <LoadingDataIndicator />}
 				<Search />
+				{isToggled && <FavouritesBar favourites={favourites }handleNavigation={handleNavigation} />}
 				<ListContainer>
 					<ResturantsList
 						data={resturants}

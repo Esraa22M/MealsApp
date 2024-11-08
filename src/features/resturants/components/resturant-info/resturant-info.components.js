@@ -1,5 +1,5 @@
 import { SvgXml } from "react-native-svg";
-import star from "../../../../../assets/icons/star.js"
+import star from "../../../../../assets/icons/star.js";
 import open from "../../../../../assets/icons/open.js";
 import {
 	ResturantCard,
@@ -10,11 +10,12 @@ import {
 	ResturantCardCover,
 	Title,
 	Address,
-	RatingContainer
+	RatingContainer,
 } from "./resturant-info.styles.js";
+import { Favourite } from "../../../../components/favourites/favourite.components.js";
 import { Spacer } from "../../../../components/spacer/spacer.component.js";
 import { TextComponent } from "../../../../components/typography/text.components.js";
-export const ResturantInfoCard = ({ resturant ={} }) => {
+export const ResturantInfoCard = ({ resturant = {} }) => {
 	const {
 		name = "some resturant",
 		icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
@@ -29,7 +30,7 @@ export const ResturantInfoCard = ({ resturant ={} }) => {
 
 	let ratingArray = Array.from(new Array(Math.floor(rating)));
 	return (
-		<ResturantCard >
+		<ResturantCard>
 			<Spacer postion="bottom" size="large">
 				<IconsContainerView>
 					<RowView>
@@ -43,6 +44,7 @@ export const ResturantInfoCard = ({ resturant ={} }) => {
 						</Spacer>
 					</RowView>
 					<RowView>
+						<Favourite resturant={resturant} />
 						<Icon source={{ uri: icon }} />
 					</RowView>
 				</IconsContainerView>

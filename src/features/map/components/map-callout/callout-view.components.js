@@ -3,7 +3,7 @@ import { ResturantInfoCompact } from "../../../../components/resturant-info-comp
 export const MapCallout = ({ resturant,navigation }) => {
 	return (
 		<Callout onPress={()=>{navigation.navigate('ResturantDetails',{resturant})}}>
-			<ResturantInfoCompact resturant={resturant} />
+			<ResturantInfoCompact resturant={resturant} isMap />
 		</Callout>
 	);
 };

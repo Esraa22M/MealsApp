@@ -20,7 +20,6 @@ const TAB_ICON = {
 };
 const createScreenOptions = ({ route }) => ({
 	headerShown: false,
-    tabBarStyle: { padding: 10 },
 	tabBarIcon: ({ color, size }) => {
 		const iconName = TAB_ICON[route.name].icon;
 		const PackageName = TAB_ICON[route.name].iconPackage;

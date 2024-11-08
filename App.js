@@ -9,6 +9,7 @@ import { LoadingOverLay } from "./src/ui/loading-overlay.components";
 import { Navigation } from "./src/infastructure/navigation";
 import { LocationContextProvider } from "./src/services/location/location.context";
 import { ResturantDetailsContextProvider } from "./src/services/resturan-details/resturant-details.context";
+import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
 export default function App() {
 	const [fontsLoaded] = useFonts({
 		Raleway_400Regular,
@@ -20,13 +21,15 @@ export default function App() {
 	return (
 		<>
 			<ThemeProvider theme={theme}>
-				<ResturantDetailsContextProvider>
-					<LocationContextProvider>
-						<ResturantContextProvider>
-							<Navigation />
-						</ResturantContextProvider>
-					</LocationContextProvider>
-				</ResturantDetailsContextProvider>
+				<FavouritesContextProvider>
+					<ResturantDetailsContextProvider>
+						<LocationContextProvider>
+							<ResturantContextProvider>
+								<Navigation />
+							</ResturantContextProvider>
+						</LocationContextProvider>
+					</ResturantDetailsContextProvider>
+				</FavouritesContextProvider>
 				<ExpoStatusBar style="auto" />
 			</ThemeProvider>
 		</>
